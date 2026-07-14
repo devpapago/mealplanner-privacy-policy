@@ -1,0 +1,371 @@
+<title>MealPlanner プライバシーポリシー</title>
+<style>
+  :root {
+    --bg: #FBF6F0;
+    --bg-raised: #FFFFFF;
+    --text: #2B2320;
+    --text-muted: #6B5F56;
+    --accent: #D8571F;
+    --accent-soft: #F2E3D5;
+    --rule: #E8DFD5;
+    --mono-chip-bg: #F2E9DD;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1B1613;
+      --bg-raised: #241C18;
+      --text: #F2E9E0;
+      --text-muted: #B8A99C;
+      --accent: #FF9F5A;
+      --accent-soft: #3A2A1E;
+      --rule: #3A2E27;
+      --mono-chip-bg: #2C221C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1B1613;
+    --bg-raised: #241C18;
+    --text: #F2E9E0;
+    --text-muted: #B8A99C;
+    --accent: #FF9F5A;
+    --accent-soft: #3A2A1E;
+    --rule: #3A2E27;
+    --mono-chip-bg: #2C221C;
+  }
+  :root[data-theme="light"] {
+    --bg: #FBF6F0;
+    --bg-raised: #FFFFFF;
+    --text: #2B2320;
+    --text-muted: #6B5F56;
+    --accent: #D8571F;
+    --accent-soft: #F2E3D5;
+    --rule: #E8DFD5;
+    --mono-chip-bg: #F2E9DD;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+
+  .masthead {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .bowl-mark {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+  }
+
+  .masthead-text {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+  }
+
+  .app-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 38px);
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    text-wrap: balance;
+    margin: 0 0 10px;
+  }
+
+  .subtitle {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0 0 40px;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin-bottom: 44px;
+  }
+
+  .meta-chip {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--mono-chip-bg);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 5px 10px;
+    letter-spacing: 0.01em;
+  }
+
+  nav.toc {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    background: var(--bg-raised);
+    padding: 22px 24px;
+    margin-bottom: 52px;
+  }
+
+  nav.toc .toc-label {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  nav.toc ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    columns: 2;
+    column-gap: 24px;
+  }
+
+  nav.toc li {
+    break-inside: avoid;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  nav.toc a {
+    color: var(--text);
+    text-decoration: none;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+  }
+
+  nav.toc a:hover,
+  nav.toc a:focus-visible {
+    color: var(--accent);
+  }
+
+  article {
+    border-top: 1px solid var(--rule);
+    padding: 40px 0;
+    scroll-margin-top: 24px;
+  }
+
+  article:last-of-type {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .article-number {
+    display: inline-block;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 3px 12px;
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  h2 {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.005em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+
+  article p {
+    margin: 0 0 14px;
+    font-size: 16px;
+    max-width: 62ch;
+  }
+
+  article p:last-child { margin-bottom: 0; }
+
+  article ul {
+    margin: 0 0 16px;
+    padding-left: 1.4em;
+  }
+
+  article li {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .callout {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  .placeholder {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    background: var(--mono-chip-bg);
+    border: 1px dashed var(--text-muted);
+    border-radius: 6px;
+    padding: 2px 8px;
+    color: var(--text-muted);
+    font-size: 0.92em;
+  }
+
+  footer {
+    margin-top: 48px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  a { color: var(--accent); }
+
+  @media (max-width: 520px) {
+    nav.toc ol { columns: 1; }
+    .page { padding: 44px 18px 72px; }
+  }
+</style>
+
+<div class="page">
+  <div class="masthead">
+    <svg class="bowl-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="100" height="100" rx="22" fill="var(--accent)"/>
+      <ellipse cx="50" cy="46" rx="26" ry="14" fill="#fff"/>
+      <ellipse cx="50" cy="43.5" rx="26" ry="5.5" fill="var(--accent-soft)"/>
+    </svg>
+    <div class="masthead-text">
+      <div class="app-name">MealPlanner</div>
+    </div>
+  </div>
+
+  <h1>プライバシーポリシー</h1>
+  <p class="subtitle">共働き家庭向け週次献立プランナーアプリ「MealPlanner」における、利用者情報の取り扱いについて定めるものです。</p>
+
+  <div class="meta-row">
+    <span class="meta-chip">制定日: 2026-07-14</span>
+    <span class="meta-chip">対象: iOS版 MealPlanner</span>
+    <span class="meta-chip">外部送信: なし</span>
+  </div>
+
+  <nav class="toc" aria-label="目次">
+    <div class="toc-label">目次</div>
+    <ol>
+      <li><a href="#a1">第1条 はじめに</a></li>
+      <li><a href="#a2">第2条 取得する情報</a></li>
+      <li><a href="#a3">第3条 情報の保存方法</a></li>
+      <li><a href="#a4">第4条 第三者への提供</a></li>
+      <li><a href="#a5">第5条 アプリ内課金について</a></li>
+      <li><a href="#a6">第6条 アレルギー情報の取り扱い</a></li>
+      <li><a href="#a7">第7条 お子様の利用について</a></li>
+      <li><a href="#a8">第8条 情報の削除</a></li>
+      <li><a href="#a9">第9条 セキュリティ</a></li>
+      <li><a href="#a10">第10条 ポリシーの変更</a></li>
+      <li><a href="#a11">第11条 お問い合わせ</a></li>
+    </ol>
+  </nav>
+
+  <article id="a1">
+    <span class="article-number">第1条</span>
+    <h2>はじめに</h2>
+    <p>本プライバシーポリシー(以下「本ポリシー」)は、devpapago(以下「開発者」)が提供するiOSアプリ「MealPlanner」(以下「本アプリ」)における、利用者情報の取り扱いについて定めるものです。本アプリをご利用いただく前に、本ポリシーの内容をご確認ください。</p>
+  </article>
+
+  <article id="a2">
+    <span class="article-number">第2条</span>
+    <h2>取得する情報</h2>
+    <p>本アプリは、献立の自動提案や買い物リストの作成といった機能を提供するため、以下の情報を利用者の端末内に保存します。</p>
+    <ul>
+      <li>家族の人数</li>
+      <li>苦手食材・アレルギーに関するタグ(消費者庁の「特定原材料等」に準拠した選択式の項目)</li>
+      <li>買い物に行く曜日の設定</li>
+      <li>週の献立の組み合わせ、および献立の差し替え履歴</li>
+      <li>買い物リストのチェック状態、並び替えの設定、常備している調味料の登録内容</li>
+      <li>利用者が自由に登録した「マイレシピ」の内容(料理名・材料・分量・作り方・メモ)</li>
+      <li>アプリ内課金(プレミアムプラン)の購読状態</li>
+    </ul>
+    <p>これらの情報に、氏名・住所・電話番号・メールアドレスなど、本アプリが独自に取得する「個人を直接特定できる情報」は含まれません。</p>
+  </article>
+
+  <article id="a3">
+    <span class="article-number">第3条</span>
+    <h2>情報の保存方法</h2>
+    <p>取得した情報は、利用者の端末内(UserDefaults)に保存されるほか、同じApple IDでサインインした他の端末とデータを同期するため、Apple社が提供するiCloud(NSUbiquitousKeyValueStore)を経由して保存されます。</p>
+    <div class="callout">開発者が独自に管理するサーバーへ、これらの情報を送信・保存することは一切ありません。本アプリの通信は、Apple社が提供する仕組み(iCloud・StoreKit)の範囲にとどまります。</div>
+  </article>
+
+  <article id="a4">
+    <span class="article-number">第4条</span>
+    <h2>第三者への提供</h2>
+    <p>本アプリは、取得した情報を広告配信事業者・アクセス解析事業者などの第三者に提供することはありません。本アプリには、広告SDKおよびアクセス解析SDKは組み込まれていません。</p>
+  </article>
+
+  <article id="a5">
+    <span class="article-number">第5条</span>
+    <h2>アプリ内課金について</h2>
+    <p>本アプリのプレミアムプラン(月額サブスクリプション・買い切り)のお支払いは、Appleが提供するStoreKitを通じて処理されます。クレジットカード番号などの決済情報はApple社によって管理され、開発者が取得・保存することはありません。購入情報の取り扱いについては、Apple社のプライバシーポリシーもあわせてご確認ください。</p>
+  </article>
+
+  <article id="a6">
+    <span class="article-number">第6条</span>
+    <h2>アレルギー情報の取り扱いについて</h2>
+    <p>利用者が登録した苦手食材・アレルギー情報は、該当する献立を自動的に除外する目的にのみ利用します。本アプリは医療機関の代わりになるものではなく、アレルギー情報の正確性や安全性を保証するものでもありません。食物アレルギーをお持ちの方は、本アプリの表示を鵜呑みにせず、必ずご自身で食材や商品のパッケージをご確認ください。詳細はアプリ内「免責事項」もあわせてご参照ください。</p>
+  </article>
+
+  <article id="a7">
+    <span class="article-number">第7条</span>
+    <h2>お子様の利用について</h2>
+    <p>本アプリは主に成人の利用者(共働き家庭の保護者)を対象としており、13歳未満のお子様の利用を主目的として設計されたものではありません。</p>
+  </article>
+
+  <article id="a8">
+    <span class="article-number">第8条</span>
+    <h2>情報の削除</h2>
+    <p>利用者は、本アプリをアンインストールすることで、端末内に保存された情報を削除できます。iCloud経由で同期された情報については、端末の「設定」アプリからiCloudの同期設定を変更・停止することで管理できます。</p>
+  </article>
+
+  <article id="a9">
+    <span class="article-number">第9条</span>
+    <h2>セキュリティ</h2>
+    <p>本アプリが保存する情報は、Apple社が提供する標準的な保存・同期の仕組み(UserDefaults・iCloud)に依拠しており、それらの基盤が提供するセキュリティ対策の範囲で保護されます。</p>
+  </article>
+
+  <article id="a10">
+    <span class="article-number">第10条</span>
+    <h2>プライバシーポリシーの変更</h2>
+    <p>本ポリシーの内容は、本アプリの機能追加・変更等に伴い、予告なく変更されることがあります。重要な変更がある場合は、アプリ内でお知らせするよう努めます。</p>
+  </article>
+
+  <article id="a11">
+    <span class="article-number">第11条</span>
+    <h2>お問い合わせ</h2>
+    <p>本ポリシーに関するお問い合わせは、以下の連絡先までお願いいたします。</p>
+    <p><a href="mailto:go.ai.app0423@gmail.com">go.ai.app0423@gmail.com</a></p>
+  </article>
+
+  <footer>
+    MealPlanner プライバシーポリシー &middot; 制定日 2026年7月14日
+  </footer>
+</div>
