@@ -1,0 +1,204 @@
+<title>MealPlanner サポート</title>
+<style>
+  :root {
+    --bg: #FBF6F0;
+    --bg-raised: #FFFFFF;
+    --text: #2B2320;
+    --text-muted: #6B5F56;
+    --accent: #D8571F;
+    --accent-soft: #F2E3D5;
+    --rule: #E8DFD5;
+    --mono-chip-bg: #F2E9DD;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1B1613;
+      --bg-raised: #241C18;
+      --text: #F2E9E0;
+      --text-muted: #B8A99C;
+      --accent: #FF9F5A;
+      --accent-soft: #3A2A1E;
+      --rule: #3A2E27;
+      --mono-chip-bg: #2C221C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1B1613;
+    --bg-raised: #241C18;
+    --text: #F2E9E0;
+    --text-muted: #B8A99C;
+    --accent: #FF9F5A;
+    --accent-soft: #3A2A1E;
+    --rule: #3A2E27;
+    --mono-chip-bg: #2C221C;
+  }
+  :root[data-theme="light"] {
+    --bg: #FBF6F0;
+    --bg-raised: #FFFFFF;
+    --text: #2B2320;
+    --text-muted: #6B5F56;
+    --accent: #D8571F;
+    --accent-soft: #F2E3D5;
+    --rule: #E8DFD5;
+    --mono-chip-bg: #F2E9DD;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+    line-height: 1.9;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+
+  .masthead {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .bowl-mark {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+  }
+
+  .masthead-text {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+  }
+
+  .app-name {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 38px);
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    text-wrap: balance;
+    margin: 0 0 10px;
+  }
+
+  .subtitle {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    color: var(--text-muted);
+    font-size: 15px;
+    margin: 0 0 40px;
+  }
+
+  article {
+    border-top: 1px solid var(--rule);
+    padding: 40px 0;
+    scroll-margin-top: 24px;
+  }
+
+  article:last-of-type {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h2 {
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    letter-spacing: -0.005em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+
+  article p {
+    margin: 0 0 14px;
+    font-size: 16px;
+    max-width: 62ch;
+  }
+
+  article p:last-child { margin-bottom: 0; }
+
+  article ul {
+    margin: 0 0 16px;
+    padding-left: 1.4em;
+  }
+
+  article li {
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+
+  .callout {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  footer {
+    margin-top: 48px;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", -apple-system, sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  a { color: var(--accent); }
+</style>
+
+<div class="page">
+  <div class="masthead">
+    <svg class="bowl-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect width="100" height="100" rx="22" fill="var(--accent)"/>
+      <ellipse cx="50" cy="46" rx="26" ry="14" fill="#fff"/>
+      <ellipse cx="50" cy="43.5" rx="26" ry="5.5" fill="var(--accent-soft)"/>
+    </svg>
+    <div class="masthead-text">
+      <div class="app-name">MealPlanner</div>
+    </div>
+  </div>
+
+  <h1>サポート</h1>
+  <p class="subtitle">共働き家庭向け週次献立プランナーアプリ「MealPlanner」に関するお問い合わせ窓口です。</p>
+
+  <article>
+    <h2>お問い合わせ</h2>
+    <p>アプリの使い方、不具合のご報告、ご意見・ご要望などがありましたら、以下のメールアドレスまでご連絡ください。</p>
+    <p><a href="mailto:go.ai.app0423@gmail.com">go.ai.app0423@gmail.com</a></p>
+    <div class="callout">お問い合わせの際は、お使いの端末機種・iOSのバージョン・発生した状況を合わせてお知らせいただけますと、確認がスムーズです。</div>
+  </article>
+
+  <article>
+    <h2>よくあるご質問</h2>
+    <p><strong>Q. 献立が急に選べなくなった / 表示が空になる</strong><br>
+    アレルギー・苦手食材のタグを広く選びすぎている可能性があります。設定画面でタグの選択内容をご確認ください。</p>
+    <p><strong>Q. プレミアムプランの購入内容を確認・復元したい</strong><br>
+    設定画面の一番上にある「プラン状況」欄からいつでも購入内容の確認・復元が行えます。</p>
+    <p><strong>Q. 機種変更してもデータは引き継がれますか?</strong><br>
+    同じApple IDでサインインしていれば、iCloud経由でデータが同期されます。</p>
+  </article>
+
+  <article>
+    <h2>プライバシーポリシー</h2>
+    <p>個人情報の取り扱いについては<a href="./index.html">プライバシーポリシー</a>をご確認ください。</p>
+  </article>
+
+  <footer>
+    MealPlanner サポート
+  </footer>
+</div>
