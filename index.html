@@ -266,8 +266,9 @@
 
   <div class="meta-row">
     <span class="meta-chip">制定日: 2026-07-14</span>
+    <span class="meta-chip">改定日: 2026-08-07</span>
     <span class="meta-chip">対象: iOS版 MealPlanner</span>
-    <span class="meta-chip">外部送信: なし</span>
+    <span class="meta-chip">外部送信: AI処理・広告配信</span>
   </div>
 
   <nav class="toc" aria-label="目次">
@@ -276,7 +277,7 @@
       <li><a href="#a1">第1条 はじめに</a></li>
       <li><a href="#a2">第2条 取得する情報</a></li>
       <li><a href="#a3">第3条 情報の保存方法</a></li>
-      <li><a href="#a4">第4条 第三者への提供</a></li>
+      <li><a href="#a4">第4条 外部サービスへの送信</a></li>
       <li><a href="#a5">第5条 アプリ内課金について</a></li>
       <li><a href="#a6">第6条 アレルギー情報の取り扱い</a></li>
       <li><a href="#a7">第7条 お子様の利用について</a></li>
@@ -305,7 +306,9 @@
       <li>買い物リストのチェック状態、並び替えの設定、常備している調味料の登録内容</li>
       <li>利用者が自由に登録した「マイレシピ」の内容(料理名・材料・分量・作り方・メモ)</li>
       <li>アプリ内課金(プレミアムプラン)の購読状態</li>
+      <li>AI入力・URL取り込みの利用回数、および広告視聴によって付与された利用権</li>
     </ul>
+    <p>また、利用者が該当機能を実行した場合に限り、AI入力欄へ入力した文章、材料を取り込むレシピページのURL、アプリが生成した不正利用防止用のランダムな識別子を外部サービスへ送信します。広告配信時には、Google Mobile Ads SDKが端末情報、広告識別子(利用者が許可した場合)、IPアドレスから推定されるおおよその位置情報、広告の表示・操作情報、診断情報等を取り扱う場合があります。</p>
     <p>これらの情報に、氏名・住所・電話番号・メールアドレスなど、本アプリが独自に取得する「個人を直接特定できる情報」は含まれません。</p>
   </article>
 
@@ -313,19 +316,29 @@
     <span class="article-number">第3条</span>
     <h2>情報の保存方法</h2>
     <p>取得した情報は、利用者の端末内(UserDefaults)に保存されるほか、同じApple IDでサインインした他の端末とデータを同期するため、Apple社が提供するiCloud(NSUbiquitousKeyValueStore)を経由して保存されます。</p>
-    <div class="callout">開発者が独自に管理するサーバーへ、これらの情報を送信・保存することは一切ありません。本アプリの通信は、Apple社が提供する仕組み(iCloud・StoreKit)の範囲にとどまります。</div>
+    <p>AI入力を利用した場合、入力した文章は開発者が管理するCloudflare Workerを経由してCloudflare Workers AIへ送信され、レシピ情報の抽出に使用されます。入力文とAIの応答は、開発者のKVストレージへ保存しません。Cloudflareは、利用者の明示的な同意なくWorkers AIの顧客コンテンツをAIモデルの学習やサービス改善へ使用しないと説明しています。</p>
+    <p>URL取り込みを利用した場合、指定されたURLはCloudflare Workerへ送信され、対象ページに公開されている構造化データから材料・分量だけを取得します。取得したページ本文・画像・作り方は保存せず、Workers AIにも送信しません。</p>
+    <p>不正利用と過剰利用を防ぐため、ランダムな端末識別子と接続元IPアドレスを日付とともにハッシュ化した値、および日ごとの利用回数をCloudflare KVへ最長24時間保存します。識別子およびIPアドレスの平文、AI入力文、URL、AIの応答はKVへ保存しません。</p>
+    <div class="callout">AI入力とURL取り込みは、利用者が各機能の実行ボタンを押した場合にのみ外部送信されます。通常の献立・アレルギー・買い物リスト・マイレシピのデータを、開発者のサーバーへ保存することはありません。</div>
   </article>
 
   <article id="a4">
     <span class="article-number">第4条</span>
-    <h2>第三者への提供</h2>
-    <p>本アプリは、取得した情報を広告配信事業者・アクセス解析事業者などの第三者に提供することはありません。本アプリには、広告SDKおよびアクセス解析SDKは組み込まれていません。</p>
+    <h2>外部サービスへの送信</h2>
+    <p>本アプリは、機能の提供に必要な範囲で以下の外部サービスを利用します。</p>
+    <ul>
+      <li><strong>Apple iCloud / StoreKit:</strong> アプリデータの同期、購読状態および決済の管理</li>
+      <li><strong>Cloudflare Workers / Workers AI / KV:</strong> AIによるレシピ情報の抽出、公開レシピURLからの材料取得、不正利用防止および利用回数制限</li>
+      <li><strong>Google AdMob / User Messaging Platform:</strong> リワード広告の配信、広告に関する同意選択の管理、不正行為防止、広告配信の測定</li>
+    </ul>
+    <p>広告のパーソナライズは、適用される法令、利用者がGoogleの同意フォームで選択した内容、およびiOSのトラッキング許可設定に従います。パーソナライズを許可しない場合でも、広告配信や不正行為防止等に必要な情報が処理される場合があります。</p>
+    <p>各サービスにおける情報の取り扱いについては、<a href="https://www.apple.com/legal/privacy/">Appleプライバシーポリシー</a>、<a href="https://www.cloudflare.com/privacypolicy/">Cloudflareプライバシーポリシー</a>、<a href="https://developers.cloudflare.com/workers-ai/platform/data-usage/">Workers AIのデータ利用方針</a>、<a href="https://policies.google.com/privacy">Googleプライバシーポリシー</a>をご確認ください。</p>
   </article>
 
   <article id="a5">
     <span class="article-number">第5条</span>
     <h2>アプリ内課金について</h2>
-    <p>本アプリのプレミアムプラン(月額サブスクリプション・買い切り)のお支払いは、Appleが提供するStoreKitを通じて処理されます。クレジットカード番号などの決済情報はApple社によって管理され、開発者が取得・保存することはありません。購入情報の取り扱いについては、Apple社のプライバシーポリシーもあわせてご確認ください。</p>
+    <p>本アプリのプレミアムプラン(月額サブスクリプション)のお支払いは、Appleが提供するStoreKitを通じて処理されます。クレジットカード番号などの決済情報はApple社によって管理され、開発者が取得・保存することはありません。購入情報の取り扱いについては、Apple社のプライバシーポリシーもあわせてご確認ください。</p>
   </article>
 
   <article id="a6">
@@ -343,13 +356,13 @@
   <article id="a8">
     <span class="article-number">第8条</span>
     <h2>情報の削除</h2>
-    <p>利用者は、本アプリをアンインストールすることで、端末内に保存された情報を削除できます。iCloud経由で同期された情報については、端末の「設定」アプリからiCloudの同期設定を変更・停止することで管理できます。</p>
+    <p>利用者は、本アプリをアンインストールすることで、端末内に保存された情報を削除できます。iCloud経由で同期された情報については、端末の「設定」アプリからiCloudの同期設定を変更・停止することで管理できます。不正利用防止用のCloudflare KVデータは最長24時間で自動的に削除されます。広告に関する選択肢が必要な地域では、アプリ内の「設定」から広告設定を再表示できます。</p>
   </article>
 
   <article id="a9">
     <span class="article-number">第9条</span>
     <h2>セキュリティ</h2>
-    <p>本アプリが保存する情報は、Apple社が提供する標準的な保存・同期の仕組み(UserDefaults・iCloud)に依拠しており、それらの基盤が提供するセキュリティ対策の範囲で保護されます。</p>
+    <p>本アプリが保存する情報は、Apple社が提供する標準的な保存・同期の仕組み(UserDefaults・iCloud)に依拠しています。AI・URL機能および広告配信に伴う通信にはHTTPSを使用し、外部サービスの基盤が提供するセキュリティ対策の範囲で保護されます。</p>
   </article>
 
   <article id="a10">
@@ -366,6 +379,6 @@
   </article>
 
   <footer>
-    MealPlanner プライバシーポリシー &middot; 制定日 2026年7月14日
+    MealPlanner プライバシーポリシー &middot; 制定日 2026年7月14日 &middot; 改定日 2026年8月7日
   </footer>
 </div>
